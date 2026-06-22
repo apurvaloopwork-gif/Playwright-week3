@@ -32,4 +32,4 @@ with sync_playwright() as playwright:
   
   page.locator("div.form-group").filter(has=page.get_by_label("password")).highlight() 
   page.wait_for_timeout(2000)
-browser.close()
+  browser.close()

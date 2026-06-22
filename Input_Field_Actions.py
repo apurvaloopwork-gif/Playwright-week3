@@ -19,4 +19,4 @@ with sync_playwright() as playwright:
   valid_input=page.get_by_label("valid input").first
   valid_input.input_value()
  
-browser.close()    
+  browser.close()    

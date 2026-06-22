@@ -18,4 +18,4 @@ with sync_playwright() as playwright:
   
   multi_select = page.get_by_label("Example multiple select")
   multi_select.select_option(["1","2","3","5"])
-browser.close()  
+  browser.close()  

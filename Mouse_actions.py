@@ -22,4 +22,4 @@ with sync_playwright() as playwright:
   button.click(modifiers=["shift","Meta"])
   outline_button=page.locator("button.btn=outline-primary")
   outline_button.hover()
-browser.close()
+  browser.close()

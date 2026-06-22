@@ -27,4 +27,4 @@ with sync_playwright() as playwright:
   
   switch.uncheck()
   switch.check()
-browser.close()
+  browser.close()

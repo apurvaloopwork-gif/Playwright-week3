@@ -22,4 +22,4 @@ with sync_playwright() as playwright:
   dropdwon_link.click()
   page.wait_for_timeout(2000)
   
-browser.close()
+  browser.close()

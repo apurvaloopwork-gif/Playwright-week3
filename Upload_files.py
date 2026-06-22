@@ -16,4 +16,4 @@ with sync_playwright() as playwright:
     
   file_chooser = fc_info.value
   file_chooser.set_files("get_by_text.py")
-browser.close()
+  browser.close()
