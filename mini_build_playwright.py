@@ -1,7 +1,8 @@
 from playwright.sync_api import sync_playwright
 
 with sync_playwright() as playwright:
-    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    browser = playwright.chromium.launch(headless=False,slow_mo=500)
+
     page = browser.new_page()
 
     page.goto("https://www.google.com/maps")
@@ -10,12 +11,15 @@ with sync_playwright() as playwright:
     search_box.fill("gym mumbai Andheri")
     page.keyboard.press("Enter")
 
-    articles = page.get_by_role("article")
+    articles = page.locator("div[role='article']")
     articles.first.wait_for()
-    name = page.locator("a[aria-label]").first
-    print(name)
     print("Total gyms =", articles.count())
 
-    page.wait_for_timeout(5000)
+    for i in range(articles.count()):
+        name = articles.nth(i).get_attribute("aria-label")
+        print(f"{i+1}. {name}")
 
+    page.wait_for_timeout(5000)
     browser.close()
+    
+    
