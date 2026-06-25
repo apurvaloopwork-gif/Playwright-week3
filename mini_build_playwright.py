@@ -22,4 +22,4 @@ with sync_playwright() as playwright:
     page.wait_for_timeout(5000)
     browser.close()
     
-    
+     
