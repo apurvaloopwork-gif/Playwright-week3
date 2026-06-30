@@ -10,10 +10,17 @@ with sync_playwright() as playwright:
     search_box = page.get_by_label("Search Google Maps")
     search_box.fill("gym mumbai Andheri")
     page.keyboard.press("Enter")
-
+    
     articles = page.locator("div[role='article']")
     articles.first.wait_for()
+    # page.get_by_role("feed", name ="Search results for gym mumbai andheri").hover()
+    # page.wait_for_timeout(5000)
+    # page.keyboard.press("PageDown")
+   
     print("Total gyms =", articles.count())
+    
+    # feed = page.get_by_role("feed",name = "Results for gym mumbai andheri")
+    # print(feed)
 
     for i in range(articles.count()):
         name = articles.nth(i).get_attribute("aria-label")
@@ -22,4 +29,5 @@ with sync_playwright() as playwright:
     page.wait_for_timeout(5000)
     browser.close()
     
+     
      
