@@ -13,17 +13,27 @@ with sync_playwright() as playwright:
     
     articles = page.locator("div[role='article']")
     articles.first.wait_for()
-    # page.get_by_role("feed", name ="Search results for gym mumbai andheri").hover()
-    # page.wait_for_timeout(5000)
-    # page.keyboard.press("PageDown")
-   
+    
+    feed = page.locator("div[role='feed']")
+    feed.hover()
+  
+  
+    page.mouse.wheel(0,2000)
+    page.wait_for_timeout(5000)
+    page.mouse.wheel(0,2000)
+    page.wait_for_timeout(5000)
+    page.mouse.wheel(0,2000)
+    page.wait_for_timeout(5000)
+    page.mouse.wheel(0,2000)
+    page.wait_for_timeout(5000)
+    page.mouse.wheel(0,2000)
+    page.wait_for_timeout(5000)
     print("Total gyms =", articles.count())
     
-    # feed = page.get_by_role("feed",name = "Results for gym mumbai andheri")
-    # print(feed)
 
     for i in range(articles.count()):
-        name = articles.nth(i).get_attribute("aria-label")
+        article=articles.nth(i)
+        name = article.locator("a[aria-label]").get_attribute("aria-label")
         print(f"{i+1}. {name}")
 
     page.wait_for_timeout(5000)
